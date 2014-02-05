@@ -20,6 +20,15 @@
         <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
         <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <tr>
+      <td>
+        <ul>
+          <% experience.notes.each do |note| %>
+          <li><%= link_to note.topic, note.content, target:"_blank" %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
     <% end %>
   </tbody>
 </table>

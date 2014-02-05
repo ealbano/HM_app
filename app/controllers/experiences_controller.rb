@@ -3,8 +3,10 @@ class ExperiencesController < ApplicationController
 
   # GET /experiences
   # GET /experiences.json
+
   def index
     @experiences = current_user.experiences
+# raise
   end
 
   # GET /experiences/1
@@ -26,40 +28,29 @@ class ExperiencesController < ApplicationController
   # POST /experiences.json
   def create
     @experience = Experience.new(experience_params)
-
-    respond_to do |format|
-      if @experience.save
-        format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @experience }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @experience.errors, status: :unprocessable_entity }
-      end
+    current_user.experiences << @experience
+    if @experience.save
+      redirect_to @experience, notice: 'Experience was successfully created.' 
+    else
+      render action: 'new' 
     end
   end
 
   # PATCH/PUT /experiences/1
   # PATCH/PUT /experiences/1.json
   def update
-    respond_to do |format|
       if @experience.update(experience_params)
-        format.html { redirect_to @experience, notice: 'Experience was successfully updated.' }
-        format.json { head :no_content }
+        redirect_to @experience, notice: 'Experience was successfully updated.'
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @experience.errors, status: :unprocessable_entity }
+        render action: 'edit'
       end
-    end
   end
 
   # DELETE /experiences/1
   # DELETE /experiences/1.json
   def destroy
     @experience.destroy
-    respond_to do |format|
-      format.html { redirect_to experiences_url }
-      format.json { head :no_content }
-    end
+    redirect_to experiences_url
   end
 
   private

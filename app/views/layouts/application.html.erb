@@ -18,8 +18,12 @@
   			<%= link_to "Sign in", new_session_path(User) %><br />
 		<% end -%>
   		<%= link_to "Sign up", new_registration_path(User) %><br />
-		<% end -%>
-
+  		<div class="jumbotron">
+		  <h1>Welcome to HireMe!</h1>
+		  <p>Please sign in or sign up to access this awesome website</p>
+		  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+		</div>
+	<% end -%>
 	<%= yield %>
 
 </body>
