@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://desolate-anchorage-2481.herokuapp.com/">HireMe</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+<li>
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+</li>
+
+        <li><a href="#">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://desolate-anchorage-2481.herokuapp.com/">Home</li>
+            <li><a href="https://www.linkedin.com/">LinkedIn</li>
+            <li><a href="https://twitter.com/">Twitter</li>
+            <li><a href="https://www.facebook.com/">Facebook</li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
 <head>
   <title>HiremeApp</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body background="nyc2.jpg">
+
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 	
@@ -18,13 +77,25 @@
   			<%= link_to "Sign in", new_session_path(User) %><br />
 		<% end -%>
   		<%= link_to "Sign up", new_registration_path(User) %><br />
+  	
   		<div class="jumbotron">
+  		<div class="container">
+		  <center>
 		  <h1>Welcome to HireMe!</h1>
-		  <p>Please sign in or sign up to access this awesome website</p>
-		  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+  		  <p>Showcase your professional experience, work samples, and discover opportunities.</p>
+  		  <p>Get started with your free account.</p>
+		  </center>
+		</div>
 		</div>
 	<% end -%>
 	<%= yield %>
 
 </body>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <p class="navbar-text pull-left">2014 HireMe, LLC  |  Made in NYC</p>
+  </div>
+</nav>
+
 </html>

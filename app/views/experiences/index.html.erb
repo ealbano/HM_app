@@ -1,4 +1,4 @@
-<h1>Listing Experiences</h1>
+<h1 class="list">Experience</h1>
 
 <table>
   <thead>
@@ -12,6 +12,8 @@
   </thead>
 
   <tbody>
+
+    <table class="table table-striped">
     <% @experiences.each do |experience| %>
       <tr>
         <td><%= experience.title %></td>
@@ -21,6 +23,7 @@
         <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <tr>
+      <td></td>
       <td>
         <ul>
           <% experience.notes.each do |note| %>
@@ -30,9 +33,15 @@
       </td>
     </tr>
     <% end %>
+    </table>
+
+
   </tbody>
 </table>
 
-<br>
-
 <%= link_to 'New Experience', new_experience_path %>
+
+<br>
+<br>
+<br>
+<br>

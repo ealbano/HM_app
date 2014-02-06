@@ -1,6 +1,9 @@
+# 2/6
+
 HiremeApp::Application.routes.draw do
   devise_for :users, path: "/", path_names: { sign_in: 'login', sign_out: 'logout'}
   root "experiences#index"
+  get '/home' => "home#index"
   # root :to => "home#index"
   resources :experiences do
     resources :notes
