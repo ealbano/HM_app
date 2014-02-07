@@ -18,3 +18,27 @@ body {
 .pic {
 
 }
+
+/*Navbar*/
+
+#navbar-wrapper{
+	min-width: 800px;
+}
+
+#signin-navbar {
+	width: 500px;
+
+}
+
+#signin-input-wrapper {
+	width: 700px;
+	margin: 10px 0px 10px 0px;
+}
+
+.signin-input {
+	width: 200px;
+	float: left;
+	margin-right: 10px;
+}
+
+/*End of Navbar*/

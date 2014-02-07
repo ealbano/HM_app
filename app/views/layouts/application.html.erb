@@ -2,37 +2,27 @@
 <html>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div id="navbar-wrapper">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" href="http://desolate-anchorage-2481.herokuapp.com/">HireMe</a>
+<% if !current_user  %>
+   <div class="form-group" id="signin-input-wrapper">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), class:"navbar-form navbar-left", role:"search", id:"signin-navbar") do |f| %>
+      
+        <div class="signin-input" id="email-input">
+          <%= f.email_field :email, :autofocus => true, placeholder:"email", class:"form-control", type:"text"%>
+        </div>
+        <div class="signin-input" id="">
+          <%= f.password_field :password, placeholder:"password", class:"form-control"%>
+        </div>
+      
+      <%= f.submit "Sign in", class:"btn btn-default" , type:"submit"%>
+    <% end %>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
-    	<ul class="nav navbar-nav navbar-right">
-        <li><a href="#">About</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="http://desolate-anchorage-2481.herokuapp.com/">Home</li>
-            <li><a href="https://www.linkedin.com/">LinkedIn</li>
-            <li><a href="https://twitter.com/">Twitter</li>
-            <li><a href="https://www.facebook.com/">Facebook</li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+  <% else %>
+  <% end %>
+  </div>
+</div>
 </nav>
 
 
@@ -51,6 +41,7 @@
 	<% if user_signed_in? %>
 		<p class="user">You are signed in as <%= current_user.email %></p>
 		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <%= yield %>
 	<% else %>
 		<%- if controller_name != 'sessions' %>
   			<%= link_to "Sign in", new_session_path(User) %><br />
@@ -67,7 +58,7 @@
 		</div>
 		</div>
 	<% end -%>
-	<%= yield %>
+	
 
 </body>
 
