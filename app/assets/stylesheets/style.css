@@ -19,6 +19,31 @@ body {
 
 }
 
+.bgcolor1 {
+	background-color: #FFFFFF;
+}
+
+
+.bgcolor2 {
+	background-color: #CCFFCC;
+}
+
+.homebg {
+	background: url('http://www.wallpaperup.com/uploads/wallpapers/2012/12/13/24646/big_thumb_970edd051588536a2d240f17b4ef9713.jpg') no-repeat center center fixed;
+	background-size: cover;
+	min-height: 100%;
+	min-width: 100%;
+}
+
+
+
+.box {
+margin-left: 15%;
+margin-right: 15%;
+border-radius: 40%;
+margin-top: 8%;
+}
+
 /*Navbar*/
 
 #navbar-wrapper{
